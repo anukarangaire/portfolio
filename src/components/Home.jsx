@@ -1,8 +1,18 @@
+import React from "react";
+import IntroBackground from "../components/IntroBackground";
+import Bio from "../components/Bio";
+import Education from "../components/Education";
+import Footer from "../components/Footer";
+
 const Home = () => {
   return (
-    <div style={{ textAlign: 'center', padding: '20px' }}>
-      <h1>Welcome to My Portfolio</h1>
-      <p>This is the home page. Add your bio, skills, or projects here.</p>
+    <div>
+      {/* Hero / Intro background */}
+<IntroBackground />
+<Bio id="bio" />
+<Education id="education" />
+
+   
     </div>
   );
 };
