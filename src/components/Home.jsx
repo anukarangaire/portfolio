@@ -3,6 +3,7 @@ import IntroBackground from "../components/IntroBackground";
 import Bio from "../components/Bio";
 import Education from "../components/Education";
 import Footer from "../components/Footer";
+import Skills from "../components/skills";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
 <IntroBackground />
 <Bio id="bio" />
 <Education id="education" />
+<Skills id="skill"/>
 
    
     </div>

@@ -13,7 +13,6 @@ const Bio = () => {
           <h3 className="text-2xl font-semibold mb-4">Personal Info</h3>
           <p>Grade 12 student from Nepal</p>
           <p>Passionate about Engineering & Computer Science</p>
-          <p>Exploring innovative AI and Robotics solutions</p>
         </div>
 
        
