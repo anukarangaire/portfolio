@@ -48,7 +48,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-2 bg-black "
+      className="py-2 bg-blue-950 "
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0 "}`}>

@@ -10,6 +10,8 @@ const Navbar = () => {
     { to: '/#home', label: 'Home', Icon: Home },
     { to: '/#bio', label: 'About', Icon: User },
     { to: '/#education', label: 'Education', Icon: GraduationCap },
+    { to: '/#skills', label: 'Skills', Icon: GraduationCap },
+
     { to: '/certificates', label: 'Certificates', Icon: Award },
   ];
 

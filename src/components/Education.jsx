@@ -42,7 +42,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" ref={sectionRef} className="py-20 bg-black">
+    <section id="education" ref={sectionRef} className="py-20 bg-blue-950">
       <div className="container mx-auto px-4 relative z-10">
         <div
           className={`text-center mb-16 transition-all duration-1000 ${
