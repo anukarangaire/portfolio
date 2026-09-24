@@ -7,7 +7,7 @@ import Achievements from "../components/Achievements";
 import Contact from "../components/Contact"
 import Projects from "../components/Projects"
 import Skills from "../components/skills";
-
+import Art from "../components/Sketching";
 const Home = () => {
   return (
     <div>
@@ -16,6 +16,7 @@ const Home = () => {
 <Projects/>
 <Education id="education" />
 <Achievements/>
+<Art/>
 <Skills id="skill"/>
 <Contact/>
 
