@@ -7,7 +7,7 @@ import prefect from "../assets/prefect.jpg"
 import CR_12 from "../assets/CR_12.jpg";
 import award3 from "../assets/awar3.jpg";
 import CR_ from "../assets/CR_!.jpg";
-import honor5 from "../assets/honor5.jpg";
+// import honor5 from "../assets/honor5.jpg";
 import story from "../assets/story.jpg";
 import trinity from "../assets/trinity.jpg";
 import ubjau from "../assets/ubjau.jpg";
@@ -29,7 +29,7 @@ const Certificates = () => {
     { src: CR_12, caption: "Selected as Class representative for Grade 12", category: "Leadership and ECA" },
     { src: CR_, caption: "Selected as Class representative for Grade 11", category: "Leadership and ECA" },
     { src: STEAM, caption: "STEAM Participation", category: "Leadership and ECA" },
-    { src: honor5, caption: "Leadership Award", category: "Honour" },
+    // { src: honor5, caption: "Leadership Award", category: "Honour" },
     { src: story, caption: "Story Writing Award", category: "Leadership and ECA " },
     { src: math_olympiad, caption: "Math Olympiad Winner", category: "Leadership and ECA" },
     { src: quiz_first, caption: "Quiz Competition 1st", category: "Leadership and ECA" },
