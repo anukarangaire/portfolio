@@ -1,91 +1,159 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import profileImage from "../assets/profile1.jpg";
 
 const Bio = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => entry.isIntersecting && setIsVisible(true),
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="bio"
-      className="relative bg-gradient-to-b from-slate-900 to-blue-950 py-2 md:px-1 overflow-hidden"
+      ref={sectionRef}
+      className="relative bg-gradient-to-b from-slate-900 to-blue-950 py-20 px-5 overflow-hidden"
     >
-     
-      <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-         
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
-            About Me
-          </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-yellow-400 to-yellow-500 mx-auto rounded-full"></div>
-        </div>
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 items-stretch">
+        {/* ================= LEFT ================= */}
+        <div
+          className={`w-full lg:w-[54%] flex flex-col justify-between gap-8 z-10 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
+          <div className="space-y-4">
+            <h1 className="text-4xl sm:text-5xl font-black leading-[1.1] tracking-tight text-white">
+              Anukaran <br />
+              <span className="text-yellow-400">Gaire</span>
+            </h1>
 
-        {/* Content Grid */}
-        <div className="grid md:grid-cols-2 gap-3 mb-3">
-          {/* Quick Info Cards */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-yellow-400 ">
-            <div className="flex items-center mb-4">
-              <div className="w-10 h-12 bg-yellow-400 rounded-full flex items-center justify-center mr-4">
-                <svg className="w-6 h-6 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
+            <div className="flex items-center border-l-4 border-yellow-400 pl-4">
+              <p className="text-lg font-semibold text-blue-100">
+                Grade 12 Student, Nepal 🇳🇵
+              </p>
+            </div>
+
+            <p className="text-yellow-400 text-lg font-bold italic">
+              "Building technology that creates real social impact"
+            </p>
+
+            <p className="text-blue-100/80 text-base leading-relaxed max-w-xl">
+              I'm an aspiring student dedicated to building technology that
+              creates real social impact. My interests span artificial
+              intelligence, wearable devices, and accessible solutions that
+              help people in need.
+            </p>
+          </div>
+
+          {/* ================= STATS ================= */}
+          <div className="flex items-center gap-8 flex-wrap">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🎓</span>
+              <div>
+                <div className="text-xl font-black text-yellow-400">
+                  Grade 12
+                </div>
+                <div className="text-sm font-semibold text-white/50">
+                  Graduating 2026
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-white">Location</h3>
             </div>
-            <p className="text-blue-100 text-lg">Grade 12 Student</p>
-            <p className="text-yellow-400 font-semibold">Nepal 🇳🇵</p>
-          </div>
 
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-yellow-400 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:-translate-y-2">
-            <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center mr-4">
-                <svg className="w-6 h-6 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                </svg>
+            <div className="w-px h-10 bg-white/10" />
+
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">📍</span>
+              <div>
+                <div className="text-xl font-black text-blue-300">Nepal</div>
+                
               </div>
-              <h3 className="text-xl font-semibold text-white">Interests</h3>
             </div>
-            <p className="text-blue-100 text-lg">Engineering &</p>
-            <p className="text-yellow-400 font-semibold">Computer Science</p>
+
+            <div className="w-px h-10 bg-white/10" />
+
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">💡</span>
+              <div>
+                <div className="text-xl font-black text-yellow-400">CS</div>
+                <div className="text-sm font-semibold text-white/50">
+                  Engineering Focus
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ================= INTEREST PILLARS ================= */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="flex items-center gap-3 p-3 border-l-4 border-yellow-400 bg-slate-800/50 rounded-lg">
+              <span className="text-lg">🤖</span>
+              <span className="font-semibold text-sm text-blue-100">
+                Artificial Intelligence
+              </span>
+            </div>
+            <div className="flex items-center gap-3 p-3 border-l-4 border-blue-400 bg-slate-800/50 rounded-lg">
+              <span className="text-lg">⌚</span>
+              <span className="font-semibold text-sm text-blue-100">
+                Wearable Tech
+              </span>
+            </div>
+            <div className="flex items-center gap-3 p-3 border-l-4 border-green-400 bg-slate-800/50 rounded-lg">
+              <span className="text-lg">🌍</span>
+              <span className="font-semibold text-sm text-blue-100">
+                Social Impact
+              </span>
+            </div>
+            <div className="flex items-center gap-3 p-3 border-l-4 border-purple-400 bg-slate-800/50 rounded-lg">
+              <span className="text-lg">♿</span>
+              <span className="font-semibold text-sm text-blue-100">
+                Accessibility
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Main Bio Section */}
-        <div className="bg-gradient-to-br from-slate-800/70 to-blue-900/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-10 hover:border-yellow-400 transition-all duration-300 shadow-xl">
-          <div className="flex items-start mb-6">
-            <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
-              <svg className="w-8 h-8 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-            </div>
-            <div>
-              <h3 className="text-3xl font-bold mb-2 text-white">My Story</h3>
-              <div className="w-16 h-1 bg-yellow-400 rounded-full"></div>
-            </div>
-          </div>
-          
-          <p className="text-blue-50 text-lg leading-relaxed mb-6">
-            I'm an aspiring student dedicated to building technology that
-            creates real social impact. My interests span artificial
-            intelligence, wearable devices, and accessible solutions that help
-            people in need.
-          </p>
+        {/* ================= RIGHT: CURVED IMAGE SIDE ================= */}
+        <div
+          className={`w-full lg:w-[44%] relative min-h-[320px] lg:min-h-[460px] flex items-stretch transition-all duration-700 delay-150 ${
+            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+          }`}
+        >
+          <div className="relative w-full h-full min-h-[320px] lg:min-h-[460px] rounded-t-[4rem] lg:rounded-t-none lg:rounded-l-[10rem] overflow-hidden border-t-[6px] lg:border-t-0 lg:border-l-[6px] border-yellow-400 shadow-2xl">
+            {/* Dot grid overlay */}
+            {/* <div className="absolute inset-0 z-10 opacity-20 mix-blend-screen bg-[radial-gradient(#fbbf24_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" /> */}
 
-          {/* Interest Tags */}
-          <div className="flex flex-wrap gap-3 mt-8">
-            <span className="px-4 py-2 bg-yellow-400/20 border border-yellow-400 text-yellow-400 rounded-full text-sm font-semibold hover:bg-yellow-400 hover:text-slate-900 transition-all cursor-default">
-              Artificial Intelligence
-            </span>
-            <span className="px-4 py-2 bg-blue-400/20 border border-blue-400 text-blue-400 rounded-full text-sm font-semibold hover:bg-blue-400 hover:text-slate-900 transition-all cursor-default">
-              Wearable Tech
-            </span>
-            <span className="px-4 py-2 bg-green-400/20 border border-green-400 text-green-400 rounded-full text-sm font-semibold hover:bg-green-400 hover:text-slate-900 transition-all cursor-default">
-              Social Impact
-            </span>
-            <span className="px-4 py-2 bg-purple-400/20 border border-purple-400 text-purple-400 rounded-full text-sm font-semibold hover:bg-purple-400 hover:text-slate-900 transition-all cursor-default">
-              Accessibility
-            </span>
+            {/* Soft glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-blue-400/20 blur-[80px] z-10 pointer-events-none" />
+
+            {/* Photo — replace src with your own portrait */}
+           <img
+  src={profileImage}
+  alt="Anukaran Gaire"
+  className="absolute inset-0 w-full h-full object-cover object-center scale-105 hover:scale-110 transition-transform duration-1000"
+/>
+
+
+            {/* Bottom accent wave */}
+            <div
+              className="absolute bottom-0 left-0 right-0 bg-yellow-400 z-10"
+              style={{
+                height: "clamp(50px, 12vw, 90px)",
+                clipPath: "ellipse(110% 100% at 50% 100%)",
+              }}
+            >
+              
+
+              <div className="absolute top-2 left-3 bg-slate-900/90 backdrop-blur-md rounded-xl shadow p-2">
+               
+              </div>
+            </div>
           </div>
         </div>
-
-
       </div>
     </section>
   );

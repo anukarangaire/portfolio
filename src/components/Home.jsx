@@ -8,7 +8,6 @@ import Skills from "../components/skills";
 const Home = () => {
   return (
     <div>
-      {/* Hero / Intro background */}
 <IntroBackground />
 <Bio id="bio" />
 <Education id="education" />
