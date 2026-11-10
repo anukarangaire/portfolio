@@ -56,12 +56,8 @@ const Bio = () => {
             <div className="flex items-center gap-3">
               <span className="text-2xl">🎓</span>
               <div>
-                <div className="text-xl font-black text-yellow-400">
-                  Grade 12
-                </div>
-                <div className="text-sm font-semibold text-white/50">
-                  Graduating 2026
-                </div>
+               
+               
               </div>
             </div>
 
