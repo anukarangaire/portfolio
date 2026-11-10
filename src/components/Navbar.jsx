@@ -1,21 +1,20 @@
 import { useState, useEffect } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
-import { Menu, X, Home, User, GraduationCap, Code2, Award, Mail } from 'lucide-react';
-
+import { Menu, X } from 'lucide-react';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
-    { to: '/#home', label: 'Home', Icon: Home },
-    { to: '/#bio', label: 'About', Icon: User },
-    { to: '/#education', label: 'Education', Icon: GraduationCap },
-    { to: '/#skills', label: 'Skills', Icon: Code2 },
-    { to: '/#art', label: 'Art', Icon: Award },
-    { to: '/#achievements', label: 'Achievements', Icon: Award },
-    { to: '/certificates', label: 'Certificates', Icon: Award },
-    { to: '/#contact', label: 'Contact', Icon: Mail },
+    { to: '/#home', label: 'Home',  },
+    { to: '/#bio', label: 'About',  },
+    { to: '/#education', label: 'Education' },
+    { to: '/#skills', label: 'Skills' },
+    { to: '/#art', label: 'Art' },
+    { to: '/#achievements', label: 'Achievements' },
+    { to: '/certificates', label: 'Certificates' },
+    { to: '/#contact', label: 'Contact'},
   ];
 
   // Scroll effect
